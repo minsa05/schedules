@@ -1,8 +1,9 @@
-package com.example.demo.Comment.controller;
+package com.example.demo.comment.controller;
 
-import com.example.demo.Comment.dto.request.CommentRequest;
-import com.example.demo.Comment.dto.response.CommentResponse;
-import com.example.demo.Comment.service.CommentService;
+
+import com.example.demo.comment.dto.request.CommentsRequest;
+import com.example.demo.comment.dto.response.CommentsResponse;
+import com.example.demo.comment.service.CommentService;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -20,20 +21,20 @@ public class ScheduleCommentController {
 
     private final CommentService commentService;
 
-    // 1) 댓글 작성
+    // 댓글 작성
     @PostMapping
-    public CommentResponse create(
+    public CommentsResponse create(
         @PathVariable Long scheduleId,
-        @Valid @RequestBody CommentRequest request
+        @Valid @RequestBody CommentsRequest request
     ) {
         return commentService.createComment(scheduleId, request);
     }
 
-    // 2) 댓글 목록 조회
+    // 댓글 전체 조회
     @GetMapping
-    public List<CommentResponse> list(
+    public List<CommentsResponse> list(
         @PathVariable Long scheduleId
     ) {
-        return commentService.getCommentsBySchedule(scheduleId);
+        return commentService.getCommentsAll(scheduleId);
     }
 }

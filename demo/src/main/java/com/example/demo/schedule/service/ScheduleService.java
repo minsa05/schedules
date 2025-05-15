@@ -1,9 +1,9 @@
-package com.example.demo.Schedule.service;
+package com.example.demo.schedule.service;
 
-import com.example.demo.Schedule.dto.request.ScheduleRequest;
-import com.example.demo.Schedule.dto.response.ScheduleResponse;
-import com.example.demo.Schedule.entity.ScheduleEntity;
-import com.example.demo.Schedule.repository.ScheduleRepository;
+import com.example.demo.schedule.dto.request.ScheduleRequest;
+import com.example.demo.schedule.dto.response.ScheduleResponse;
+import com.example.demo.schedule.entity.SchedulesEntity;
+import com.example.demo.schedule.repository.ScheduleRepository;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -17,18 +17,18 @@ public class ScheduleService {
 
     // 생성
     public ScheduleResponse create(ScheduleRequest scheduleRequest) {
-        ScheduleEntity newSchedule = new ScheduleEntity(
+        SchedulesEntity newSchedule = new SchedulesEntity(
             scheduleRequest.getWriterId(),
             scheduleRequest.getTitle(),
             scheduleRequest.getContent()
         );
-        ScheduleEntity savedSchedule = scheduleRepository.save(newSchedule);
+        SchedulesEntity savedSchedule = scheduleRepository.save(newSchedule);
         return toResponse(savedSchedule);
     }
 
     // 전체 조회
     public List<ScheduleResponse> findAll() {
-        List<ScheduleEntity> schedules = scheduleRepository.findAll();
+        List<SchedulesEntity> schedules = scheduleRepository.findAll();
         List<ScheduleResponse> respons = new ArrayList<>();
         for (int i = 0; i < schedules.size(); i++) {
             respons.add(toResponse(schedules.get(i)));
@@ -38,15 +38,15 @@ public class ScheduleService {
 
     // 단일 조회
     public ScheduleResponse findById(Long id) {
-        ScheduleEntity schedule = scheduleRepository.findById(id).get();
+        SchedulesEntity schedule = scheduleRepository.findById(id).get();
         return toResponse(schedule);
     }
 
     // 수정
     public ScheduleResponse update(Long id, ScheduleRequest scheduleRequest) {
-        ScheduleEntity schedule = scheduleRepository.findById(id).get();
+        SchedulesEntity schedule = scheduleRepository.findById(id).get();
         schedule.update(scheduleRequest.getTitle(), scheduleRequest.getContent());
-        ScheduleEntity updatedSchedule = scheduleRepository.save(schedule);
+        SchedulesEntity updatedSchedule = scheduleRepository.save(schedule);
         return toResponse(updatedSchedule);
     }
 
@@ -57,7 +57,7 @@ public class ScheduleService {
 
 
     // 엔티티 → DTO 변환
-    private ScheduleResponse toResponse(ScheduleEntity schedule) {
+    private ScheduleResponse toResponse(SchedulesEntity schedule) {
         return new ScheduleResponse(
             schedule.getId(),
             schedule.getWriterId(),

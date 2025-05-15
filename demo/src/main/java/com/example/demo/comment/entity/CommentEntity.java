@@ -1,7 +1,7 @@
-package com.example.demo.Comment.Entity;
+package com.example.demo.comment.entity;
 
 import com.example.demo.BaseEntity;
-import com.example.demo.Schedule.entity.ScheduleEntity;
+import com.example.demo.schedule.entity.SchedulesEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,7 +31,7 @@ public class CommentEntity extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "schedule_id", nullable = false)
-    private ScheduleEntity schedule;
+    private SchedulesEntity schedule;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_comment_id")
@@ -47,7 +47,7 @@ public class CommentEntity extends BaseEntity {
     @Column(nullable = false)
     private String content;
 
-    public CommentEntity(ScheduleEntity schedule, CommentEntity parentComment, String writerId,
+    public CommentEntity(SchedulesEntity schedule, CommentEntity parentComment, String writerId,
         String content) {
         this.schedule = schedule;
         this.parentComment = parentComment;

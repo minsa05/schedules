@@ -1,4 +1,4 @@
-package com.example.demo.Schedule.entity;
+package com.example.demo.schedule.entity;
 
 import com.example.demo.BaseEntity;
 import jakarta.persistence.Column;
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "schedules")
 @NoArgsConstructor
 @Getter
-public class ScheduleEntity extends BaseEntity {
+public class SchedulesEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class ScheduleEntity extends BaseEntity {
 
     private String content;
 
-    public ScheduleEntity(String writerId, String title, String content) {
+    public SchedulesEntity(String writerId, String title, String content) {
         this.writerId = writerId;
         this.title = title;
         this.content = content;

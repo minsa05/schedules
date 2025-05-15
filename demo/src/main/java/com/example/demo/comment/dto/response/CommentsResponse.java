@@ -1,4 +1,4 @@
-package com.example.demo.Comment.dto.response;
+package com.example.demo.comment.dto.response;
 
 import java.time.LocalDateTime;
 import lombok.Getter;
@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public class CommentResponse {
+public class CommentsResponse {
 
     private final Long id;
     private final String writerId;

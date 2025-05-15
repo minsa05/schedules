@@ -1,4 +1,4 @@
-package com.example.demo.Schedule.dto.response;
+package com.example.demo.schedule.dto.response;
 
 import java.time.LocalDateTime;
 import lombok.Getter;

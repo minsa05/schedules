@@ -1,8 +1,8 @@
-package com.example.demo.Schedule.controller;
+package com.example.demo.schedule.controller;
 
-import com.example.demo.Schedule.dto.request.ScheduleRequest;
-import com.example.demo.Schedule.dto.response.ScheduleResponse;
-import com.example.demo.Schedule.service.ScheduleService;
+import com.example.demo.schedule.dto.request.ScheduleRequest;
+import com.example.demo.schedule.dto.response.ScheduleResponse;
+import com.example.demo.schedule.service.ScheduleService;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
